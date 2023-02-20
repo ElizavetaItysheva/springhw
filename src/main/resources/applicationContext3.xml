@@ -7,7 +7,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     <bean id="customCar"
-          class="org.example.Car">
+          class="org.example.Car"
+    scope="prototype"
+          init-method="init"
+          destroy-method="destroy">
 
     </bean>
 
