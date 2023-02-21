@@ -1,15 +1,18 @@
 package org.example;
 
+import org.example.transport.Moto;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main2 {
     public static void main(String[] args){
-        ClassPathXmlApplicationContext context1 =
-                new ClassPathXmlApplicationContext("applicationContext2.xml");
-        Person person = context1.getBean("customPerson", Person.class);
-        person.sitInCar();
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+        Moto moto = context.getBean("moto", Moto.class);
+        Moto moto1 = context.getBean("moto", Moto.class);
 
-        context1.close();
+        System.out.println(moto == moto1);
+        System.out.println(moto);
+        System.out.println(moto1);
+        context.close();
     }
-
 }
